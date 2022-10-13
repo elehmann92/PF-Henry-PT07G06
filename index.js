@@ -1,0 +1,1 @@
+const contador = 'Lo rompio Jero'
