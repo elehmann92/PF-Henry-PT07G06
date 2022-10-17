@@ -8,6 +8,7 @@ export const ALL_PRODUCTS = "ALL_PRODUCTS";
 export const PRODUCT_DETAILS = "PRODUCT_DETAILS";
 export const REMOVE_CART = "REMOVE_CART";
 export const ADD_CART = "ADD_CART"
+export const GET_ALL_CATEGORIES = "GET_ALL_CATEGORIES";
 
 
 
@@ -61,4 +62,11 @@ export const removeToCart = (payload) => (dispatch) => {
     type: REMOVE_CART,
     payload: payload,
   });
+};
+
+export const getAllCategories = () => (dispatch) => {
+  return axios("http://localhost:3001/categories")
+    .then((response) =>
+      dispatch({ type: GET_ALL_CATEGORIES, payload: response.data })
+    );
 };
