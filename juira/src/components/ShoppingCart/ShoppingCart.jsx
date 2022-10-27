@@ -18,8 +18,6 @@ import { useHistory } from "react-router-dom";
 import { API_URL_BACKEND } from "../../api/apiRoute";
 import axios from "axios";
 import { useState } from "react";
-import SentimentDissatisfiedIcon from '@mui/icons-material/SentimentDissatisfied';
-import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 
 export default function ShoppingCart() {
   const dispatch = useDispatch();
@@ -74,16 +72,13 @@ export default function ShoppingCart() {
   }
 
   return (
-    <Container sx={ {boxShadow: '0 0 15px 5px #cccccc55', padding: 5}}>
+    <Container>
       <Typography variant="h4"> Carrito de compras </Typography>
       {!items.length ? (
-        <Container sx={{ minHeight: 350, margin: 2, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-          <Typography variant="h5"> Tu carrito está vacío. 
-          </Typography>
-          <SentimentDissatisfiedIcon color='action' sx={{fontSize:'200px'}}/>
+        <Container>
+          <Typography variant="h5"> Tu carrito está vacío. </Typography>
         </Container>
       ) : (
-        <Container>
         <TableContainer component={Paper}>
           <Table sx={{ minWidth: 650 }} aria-label="simple table">
             <TableHead>
@@ -150,30 +145,14 @@ export default function ShoppingCart() {
             </TableBody>
           </Table>
         </TableContainer>
-        <Container sx={{margin: 2, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-          <Button
-            variant="contained"
-            endIcon={<PaidIcon />}
-            onClick={handlePayment}
-            color='secondary'
-          >
-            Pagar
-          </Button>
-        </Container>
-      </Container>
       )}
-      <Container sx={{margin: 2, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-        <Button
-          variant="contained"
-          startIcon={<HomeRoundedIcon />}
-          sx={
-            {backgroundColor: '#23c197', '&:hover': {backgroundColor: '#138f6e'}}
-          }
-          onClick={()=>{history.push('/juira')}}
-          >
-          Inicio
-        </Button>
-      </Container>
+      <Button
+        variant="contained"
+        endIcon={<PaidIcon />}
+        onClick={handlePayment}
+      >
+        Pagar
+      </Button>
     </Container>
   );
 }

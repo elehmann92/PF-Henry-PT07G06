@@ -173,55 +173,28 @@ export default function PrimarySearchAppBar() {
       }}
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
-    >    
+    >
+      <Link
+        component={RouterLink}
+        to="/login"
+        underline="none"
+        sx={{ color: "" }}
+      >
+        <MenuItem>
+          <IconButton size="large" color="inherit">
+            <AccountCircle />
+          </IconButton>
+          <p>Iniciar Sesión / Registrarse</p>
+        </MenuItem>
+      </Link>
 
-      <Link
-        component={RouterLink}
-        to="/juira/sell"
-        underline="none"
-        sx={{ color: "" }}
-      >
-        <MenuItem style={{color: 'var(--primaryColor)'}}>
-          <IconButton
-            size="large"
-            aria-label={`show ${itemsInCart.length} new notifications`}
-            color="inherit"
-          >
-            <Badge badgeContent={itemsInCart.length} color="error">
-              <AddBusinessIcon />
-            </Badge>
-          </IconButton>
-          <p>Vender un producto</p>
-        </MenuItem>
-      </Link>
-      
-      <Link
-        component={RouterLink}
-        to="/juira/favorites"
-        underline="none"
-        sx={{ color: "" }}
-      >
-        <MenuItem style={{color: 'var(--primaryColor)'}}>
-          <IconButton
-            size="large"
-            aria-label={`show ${itemsInCart.length} new notifications`}
-            color="inherit"
-          >
-            <Badge badgeContent={itemsInCart.length} color="error">
-              <FavoriteIcon />
-            </Badge>
-          </IconButton>
-          <p>Favoritos</p>
-        </MenuItem>
-      </Link>
-      
       <Link
         component={RouterLink}
         to="/juira/shoppingCart"
         underline="none"
         sx={{ color: "" }}
       >
-        <MenuItem style={{color: 'var(--primaryColor)'}}>
+        <MenuItem>
           <IconButton
             size="large"
             aria-label={`show ${itemsInCart.length} new notifications`}
@@ -234,35 +207,6 @@ export default function PrimarySearchAppBar() {
           <p>Carrito de compras</p>
         </MenuItem>
       </Link>
-      
-      <Link
-        component={RouterLink}
-        to="/juira/login"
-        underline="none"
-        sx={{ color: "" }}
-      >
-        <MenuItem style={{color: 'var(--primaryColor)'}}>
-          <IconButton size="large" color="inherit">
-            <AccountCircle />
-          </IconButton>
-          <p>Iniciar Sesión / Registrarse</p>
-        </MenuItem>
-      </Link>
-      
-      <Link
-        component={RouterLink}
-        to="/juira/dashboard"
-        underline="none"
-        sx={{ color: "" }}
-      >
-        <MenuItem style={{color: 'var(--primaryColor)'}}>
-          <IconButton size="large" color="inherit">
-            <InsertChartIcon />
-          </IconButton>
-          <p>Dashboard</p>
-        </MenuItem>
-      </Link>
-
       {/* <MenuItem onClick={handleProfileMenuOpen}>
           <IconButton
             size="large"
@@ -391,7 +335,7 @@ export default function PrimarySearchAppBar() {
 
             <Link
               component={RouterLink}
-              to="/juira/login"
+              to="/juira"
               underline="none"
               sx={{ color: "#ffffff" }}
             >

@@ -4,7 +4,6 @@ import {
   API_URL_BACKEND,
   getCategoriesNameApi,
   getCategoriesIdApi,
-  getAllPublicatesProductsApi,
 } from "../../api/apiRoute";
 
 export const PRODUCTS_TO_DISPLAY = "PRODUCTS_TO_DISPLAY";
@@ -19,7 +18,6 @@ export const REMOVE_ID="REMOVE_ID"
 export const ADD_FAVORITES = "ADD_FAVORITES"
 export const REMOVE_FAVORTITES = "REMOVE_FAVORTITES"
 export const UPDATE_FAVORTITES = "UPDATE_FAVORTITES"
-export const SEND_SHOPPING_ORDER = "SEND_SHOPPING_ORDER"
 
 export const updateDisplayedByQuery = (query) => async (dispatch) => {
   const url = `${API_URL_BACKEND}products/?name=${query}`;
@@ -35,7 +33,7 @@ export const updateDisplayedByQuery = (query) => async (dispatch) => {
 };
 
 export const updateDisplayed = () => async (dispatch) => {
-  const url = `${API_URL_BACKEND}${getAllPublicatesProductsApi}`;
+  const url = `${API_URL_BACKEND}${getAllProductsApi}`;
   try {
     await axios(url);
     let { data } = await axios(url);
@@ -50,7 +48,7 @@ export const updateDisplayed = () => async (dispatch) => {
 };
 
 export const getAllProducts = () => async (dispatch) => {
-  const url = `${API_URL_BACKEND}${getAllPublicatesProductsApi}`;
+  const url = `${API_URL_BACKEND}${getAllProductsApi}`;
   try {
     let data = await axios(url);
     return dispatch({
@@ -149,18 +147,6 @@ export const publishProd = (data) => async () => {
   const url = `${API_URL_BACKEND}${getAllProductsApi}`;
   try {
     let json = await axios.post(url, data);
-    return json;
-  } catch (error) {
-    console.log("error api", error);
-  }
-};
-
-export const sendShopOrder = (data) => async () => {
- console.log('entre aca')
- const url = `${API_URL_BACKEND}shoppingOrders/mpresponse`;
- console.log("PUT al Back",url)
-  try {
-    let json = await axios.put(url, data);
     return json;
   } catch (error) {
     console.log("error api", error);
