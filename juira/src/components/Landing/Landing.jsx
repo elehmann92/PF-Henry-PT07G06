@@ -15,7 +15,7 @@ export default function Landing() {
                         className={styles.logo}></img>
                 </div>
                 <br />
-                <a href="/juira" className={styles.btnEntrar}>Ingresar</a>
+                <Link to="/juira" className={styles.btnEntrar}>Ingresar</Link>
                 {/* <Link to="/juira" className={styles.btnEntrar} onClick={()=>{history.push('/juira')}}>Ingresar</Link> */}
             </div>
             <div className={styles.imgWrapper}>
